@@ -106,9 +106,9 @@ def free_font(name):
 
     May raise `KeyError` if the font doesn't exist.
     """
-    if name not in _font_src:
+    if name not in _fonts_src:
         raise KeyError("%r font not registered" % name)
-    del _font_src[name]
+    del _fonts_src[name]
     _font[name].delete()
     del _font[name]
 
