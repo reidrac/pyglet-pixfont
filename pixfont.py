@@ -100,13 +100,9 @@ def free_font(name):
     """
     Free an registered font.
 
-    After the font is freed it can't be used any more even if a PixFont instance exists as the
-    texture will be destroyed.
-
     May raise `KeyError` if the font doesn't exist.
     """
     if name not in _fonts:
         raise KeyError("%r font not registered" % name)
-    _font[name].delete()
-    del _font[name]
+    del _fonts[name]
 
