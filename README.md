@@ -30,9 +30,9 @@ a new batch will be created for just that text.
 
 Optional parameters of `PixFont.render` are:
 
-    - `align`: that can be "left" (default), "right" and "center"; describing the text
-               alignment based on the text position.
-    - `group`: the group in which the text will be redered in the batch (None by default).
+- `align`: that can be "left" (default), "right" and "center"; describing the text
+           alignment based on the text position.
+- `group`: the group in which the text will be redered in the batch (None by default).
 
 See `example.py` for a complete example and run `pydoc pixfont` for method's documentation.
 
