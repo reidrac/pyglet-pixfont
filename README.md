@@ -3,7 +3,7 @@ Pixel font implementation for Pyglet
 
 This is a very simple implementation of pixel fonts for pyglet. The basic idea is
 to prepare an image with the font characters and use pyglet's `Sprite` class to
-render text using in an efficient way.
+render text using a `Batch` in an efficient way.
 
 First register a font::
 
