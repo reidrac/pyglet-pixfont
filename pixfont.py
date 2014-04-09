@@ -2,8 +2,8 @@ import pyglet
 from pyglet import gl, sprite
 
 __all__ = [ "register_font", "free_font", "get_font", ]
+__version__ = 0.1
 
-_fonts_src = []
 _fonts = {}
 default_map = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!?()@:/'., "
 
@@ -92,7 +92,6 @@ def register_font(name, filename, width, height, font_map=None):
 
     """
     _map = font_map or default_map
-    _fonts_src.append((name, filename, width, height))
     _fonts[name] = PixFont(name=name, image=pyglet.resource.image(filename), width=width, height=height, font_map=_map)
     gl.glTexParameteri(_fonts[name].texture.target, gl.GL_TEXTURE_MAG_FILTER, gl.GL_NEAREST)
     gl.glTexParameteri(_fonts[name].texture.target, gl.GL_TEXTURE_MIN_FILTER, gl.GL_NEAREST)
@@ -106,9 +105,8 @@ def free_font(name):
 
     May raise `KeyError` if the font doesn't exist.
     """
-    if name not in _fonts_src:
+    if name not in _fonts:
         raise KeyError("%r font not registered" % name)
-    del _fonts_src[name]
     _font[name].delete()
     del _font[name]
 
