@@ -57,6 +57,11 @@ class SpriteText(object):
     def draw(self):
         self.batch.draw()
 
+    def delete(self):
+        for sprite in self.sprites:
+            sprite.delete()
+        self.sprites = []
+
 def get_font(name):
     """
     Get a PixFont object registered with `register_font`.
